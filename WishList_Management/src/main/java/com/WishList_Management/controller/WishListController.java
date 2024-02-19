@@ -18,25 +18,25 @@ import com.WishList_Management.models.WishListItem;
 import com.WishList_Management.service.WishListItemService;
 
 @RestController
-@RequestMapping("/wishList")
+@RequestMapping("/api")
 public class WishListController {
 
 	@Autowired
   private WishListItemService itemService;
 	
-	@PostMapping("/add")
+	@PostMapping("/wishlists")
 	public ResponseEntity<WishListItem> addWishListItem(@RequestParam String username,@RequestBody WishListItem item){
 		 
 		return new ResponseEntity<>(itemService.CreateWishListItem(username, item),HttpStatus.CREATED);
 		
 	}
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/wishlists/{id}")
 public	ResponseEntity<String> deteteWishListItem(@PathVariable("id") long itemId){
 	              itemService.deleteWishListItem(itemId);
 		return new ResponseEntity<String>("delete succesFully", HttpStatus.OK);
 		
 	}
-	@GetMapping("/itemList")
+	@GetMapping("/wishlists")
 public	ResponseEntity<List<WishListItem>> getUserWishList(@RequestParam String username){
 		return new ResponseEntity<List<WishListItem>>(itemService.getUserWishList(username), HttpStatus.OK);
 	}

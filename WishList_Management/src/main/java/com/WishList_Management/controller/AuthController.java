@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.WishList_Management.config.JwtHelper;
+import com.WishList_Management.exception.AlreadyUserExistException;
 import com.WishList_Management.models.JwtResponse;
 import com.WishList_Management.models.LoginRequest;
 import com.WishList_Management.models.User;
@@ -70,7 +71,7 @@ public class AuthController {
 
     }
 	@PostMapping("/signup")
-	ResponseEntity<String> addUser(@RequestBody User user){
+	ResponseEntity<String> addUser(@RequestBody User user) throws AlreadyUserExistException{
 		userService.signUp(user);
 		return new ResponseEntity<String>("SuccesFully Added",HttpStatus.CREATED);
 	}
