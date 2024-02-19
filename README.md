@@ -82,7 +82,65 @@ To run the unit tests for the repository classes, use the following command:
       ```bash
       mvn test
 
+# Api Endpoints
+  1.AuthController
+    - **Register User**
+       - **Endpoint:** POST /user/signup
+       - **Description:** Register a new user.
+       - **Request Body:**
+    ```json
+        {
+          "username": "example",
+          "password": "example123"
+        }
+  - **Login**
+    - **Endpoint:** `POST /user/login`
+    - **Description:** Authenticate and obtain a JWT token.
+    - **Request Body:**
+     ```json
+    {
+      "username": "example",
+      "password": "example123"
+    }
+    ```
+  - **Response:**
+    - **Status:** `200 OK`
+    - **Body:** { username,jwt token}
 
+ ### Wishlist Management
+
+- **Add Item to Wishlist**
+  - **Endpoint:** `POST /api/wishlists`
+  - **Description:** Add a new item to the user's wishlist.
+  - **Authentication:** Bearer Token
+  - **RequestParams:** username
+  - **Request Body:**
+    ```json
+    {
+      "itemname": "New Item",
+      "price": 50.99
+    }
+    ```
+  - **Response:**
+    - **Status:** `201 Created`
+    - **Body:** `object`
+
+- **Get Wishlist**
+  - **Endpoint:** `GET /api/wishlists`
+  - **Description:** Retrieve a user's wishlist.
+  - **RequestParams:** username
+  - **Authentication:** Bearer Token
+  - **Response:**
+    - **Status:** `200 OK`
+    - **Body:** List of wishlist items
+
+- **Delete Item from Wishlist**
+  - **Endpoint:** `DELETE /api/wishlists/{id}`
+  - **Description:** Delete an item from the user's wishlist.
+  - **Authentication:** Bearer Token
+  - **Response:**
+    - **Status:** `204 No Content`
+    - **Body:** ""delete succesFully""  
 # Contributing
 Contributions are welcome! If you would like to contribute to this project, please follow these steps:
 
