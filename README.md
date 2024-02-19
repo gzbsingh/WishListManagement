@@ -40,9 +40,9 @@ Before running the application, ensure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/WishList-Management.git
+   git clone https://github.com/gzbsingh/WishListManagement.git
    Navigate to the project directory:
-   cd WishList-Management
+   cd WishListManagement
    Update the application.properties file with your MySQL database configuration:
  
 
@@ -67,7 +67,7 @@ Before running the application, ensure you have the following installed:
        mvn clean install
 
        Run the application:
-       java -jar target/WishList_Management-0.0.1-SNAPSHOT.jar
+       java -jar target/WishListManagement-0.0.1-SNAPSHOT.jar
 3. Access the application in your web browser or PostMan(testing tools) at http://localhost:8080.
 
 
